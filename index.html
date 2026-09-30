@@ -22,6 +22,7 @@
       <a-entity light="type: directional; intensity: 1" position="1 2 1"></a-entity>
 
       <a-plane
+        position="0 0 -2"
         rotation="-90 0 0"
         width="4"
         height="4"
@@ -29,11 +30,12 @@
         shadow="receive: true"
       ></a-plane>
 
+      <!-- En AR el origen está en el móvil: ponemos el avatar ~2 m delante -->
       <a-entity
         id="mi-avatar"
         gltf-model="#avatar"
-        position="32 0 0"
-        rotation="0 0 0"
+        position="0 0 -2"
+        rotation="0 180 0"
         scale="1 1 1"
         animation-mixer="clip: Arm_Combo_Muay_Thai_Clean; loop: repeat"
       ></a-entity>
@@ -42,7 +44,7 @@
         camera
         look-controls
         wasd-controls
-        position="0 1.6 3"
+        position="0 1.6 1"
       ></a-entity>
     </a-scene>
   </body>
