@@ -2,26 +2,48 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reto AR</title>
 
-  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
-    <a-scene xr-mode-ui="XRMode: xr;">
-      <a-entity light="type: ambient; intensity: 1"></a-entity>
-      <a-entity light="type: directional; intensity: 0.8" position="1 1 0"></a-entity>
+    <a-scene
+      xr-mode-ui="XRMode: xr;"
+      background="color: #87CEEB"
+      renderer="colorManagement: true;"
+    >
+      <a-assets>
+        <a-asset-item id="avatar" src="assets/me.glb"></a-asset-item>
+      </a-assets>
 
-      <a-plane rotation="-90 0 0" width="4" height="4" color="#999"></a-plane>
+      <a-entity light="type: ambient; intensity: 1.2"></a-entity>
+      <a-entity light="type: directional; intensity: 1" position="1 2 1"></a-entity>
 
+      <a-plane
+        rotation="-90 0 0"
+        width="4"
+        height="4"
+        color="#999"
+        shadow="receive: true"
+      ></a-plane>
 
-<a-entity
-  gltf-model="url(assets/me.glb)"
-  rotation="0 0 0"   
-  scale="1 1 1"
-  animation-mixer="clip: *; loop: repeat"
-></a-entity>
-      <a-entity camera look-controls position="0 1.6 3"></a-entity>
+      <a-entity
+        id="mi-avatar"
+        gltf-model="#avatar"
+        position="0 0 0"
+        rotation="0 180 0"
+        scale="1 1 1"
+        animation-mixer="clip: Arm_Combo_Muay_Thai_Clean; loop: repeat"
+      ></a-entity>
+
+      <a-entity
+        camera
+        look-controls
+        wasd-controls
+        position="0 1.6 3"
+      ></a-entity>
     </a-scene>
   </body>
 </html>
